@@ -107,7 +107,9 @@
     <div id="app">
         <button id="show-modal" v-on:click="showModal = true">Show Modal</button>
         <modal v-if="showModal" v-on:close="showModal = false">
-            <h3 slot="header">customer header</h3>
+            <h3 slot="header">我来组成头部</h3>
+            <h3 slot="body">我来组成身体</h3>
+            <!-- <h3 slot="footer">我是有下限的</h3> -->
         </modal>
     </div>
     <script type="text/javascript">
