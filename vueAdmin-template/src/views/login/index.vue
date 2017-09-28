@@ -2,12 +2,12 @@
   <div class="login-container">
     <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left" label-width="0px"
       class="card-box login-form">
-      <h3 class="title">系统登录</h3>
+      <h3 class="title">管理后台</h3>
        <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <icon-svg icon-class="yonghuming" />
         </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="邮箱" />
+        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="帐号" />
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
@@ -21,9 +21,13 @@
           登录
         </el-button>
       </el-form-item>
-      <div class='tips'>账号:admin 密码随便填</div>
-      <div class='tips'>账号:editor  密码随便填</div>
+      <div class='tips'>请填写管理员帐号</div>
+      <div class='tips'>请填写管理员密码</div>
     </el-form>
+    <p class="footer">
+          <a style="color: #666" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备12043194号-11</a>
+          © 2017 moonweilan.com All rights reserved.
+    </p>
   </div>
 </template>
 
@@ -35,7 +39,7 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
-        callback(new Error('请输入正确的用户名'))
+        callback(new Error('请输入正确的帐号'))
       } else {
         callback()
       }
@@ -79,7 +83,7 @@ export default {
   }
 }
 </script>
-
+·
 <style rel="stylesheet/scss" lang="scss">
   @import "src/styles/mixin.scss";
   $bg:#2d3a4b;
@@ -90,6 +94,7 @@ export default {
     @include relative;
     height: 100vh;
     background-color: $bg;
+    background: url(./loginBg.jpeg) no-repeat 50%/cover;
     input:-webkit-autofill {
       -webkit-box-shadow: 0 0 0px 1000px #293444 inset !important;
       -webkit-text-fill-color: #fff !important;
@@ -157,6 +162,15 @@ export default {
       position: absolute;
       right: 35px;
       bottom: 28px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
     }
   }
 </style>

@@ -36,22 +36,23 @@ export default new Router({
 
 export const asyncRouterMap = [
   {
-    path: '/example',
+    path: '/home',
     component: Layout,
     redirect: 'noredirect',
-    name: 'Example',
-    icon: 'zujian',
+    name: 'Home',
+    icon: 'home',
     children: [
-      { path: 'index', name: 'Form', icon: 'zonghe', component: _import('page/form') }
+      { path: 'todo', name: '待办事项', icon: 'qrcode', component: _import('page/form') },
+      { path: 'dashboard', name: '运营台', icon: 'qrcode', component: _import('page/form') }
     ]
   },
 
   {
-    path: '/table',
+    path: '/account',
     component: Layout,
-    redirect: '/table/index',
-    icon: 'tubiao',
-    noDropdown: true,
+    redirect: '/account/index',
+    name: 'Account',
+    icon: 'account',
     children: [{ path: 'index', name: 'Table', component: _import('table/index'), meta: { role: ['admin'] }}]
   },
 
